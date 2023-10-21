@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Moisés Gomes | FullStack Developer</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    body {
+       font: 400 15px Lato, sans-serif;
+       line-height: 1.8;
+       color: #fff;
+       background: linear-gradient(282deg, rgba(0,212,255,1) 5%, rgba(0,64,112,1) 100%);
+    }
+    h2 {
+       font-size: 26px;
+       text-transform: uppercase;
+       color: #fff;
+       font-weight: 600;
+       margin-bottom: 30px;
+    }
+    h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #fff;
+      font-weight: 400;
+    }  
+    .container-fluid {
+      padding: 50px 40px;
+      background: linear-gradient(282deg, rgba(0,212,255,1) 5%, rgba(0,64,112,1) 100%);
+    }
+   .navbar {
+      margin-bottom: 0;
+      background: linear-gradient(282deg, rgba(0,212,255,1) 5%, rgba(0,64,112,1) 100%);
+      z-index: 9999;
+      border: 0;
+      font-size: 14px !important;
+      line-height: 1.42857143 !important;
+      letter-spacing: 0px;
+      border-radius: 0;
+      font-family: Montserrat, sans-serif;
+    }
+    .bg-grey {
+      background-color: #fff;
+      padding: 50px 40px;
+    }
+    .logo-small {
+      color: #fff;
+      font-size: 50px;
+    }
+    .logo {
+      color: #fff;
+      font-size: 200px;
+    }
+    .thumbnail-t {
+      display: flex;
+      height: 300px;
+      transition: box-shadow 0.5s;
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      padding: 10px;
+      border: none;
+      border-radius: 0;
+      background: linear-gradient(180deg, rgba(11,157,187,1) 0%, rgba(0,64,112,1) 100%);
+      justify-content: center;
+      text-align: center;
+    }
+    .thumbnail {
+      transition: box-shadow 0.5s;
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      padding: 0 0 0 0;
+      border: none;
+      border-radius: 0;
+      background-color: "#fff";
+    }
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      background-color: "#fff";
+      object-fit: cover;
+    }
+    .thumbnail-footer {
+      background: linear-gradient(180deg, rgba(11,157,187,1) 0%, rgba(0,64,112,1) 100%);
+      color: "#fff";
+      padding: 15px;
+      text-align: left;
+      font-size: 18px;
+    }
+    .carousel-control.right, .carousel-control.left {
+      background-image: none;
+      color: #fff;
+    }
+    .carousel-indicators li {
+      border-color: #fff;
+    }
+    .carousel-indicators li.active {
+      background-color: #004170;
+    }
+    .item h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 70px 0;
+    }
+    .item span {
+      font-style: normal;
+    }
+    .panel {
+      border-radius:0 !important;
+      transition: box-shadow 0.5s;
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+      border: none;
+      background-color: #fff;
+    }
+    .panel:hover {
+      box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+    }
+    .panel-footer .btn:hover {
+      border: 1px solid #004170;
+      background-color: #fff !important;
+      color: #004170;
+    }
+    .panel-heading {
+      background-color: #fff !important;
+      padding: 0px;
+    }
+    .div-panel-one {
+      display: flex;
+      background-color:  #fff !important;
+      padding: 15px;
+      flex-direction: row;
+      align-items: center;
+    }
+    .div-panel-two-a {
+      background: transparent;
+      max-width: 25%;
+    }
+    .div-panel-two {
+      display: flex;
+      width: 60px;
+      height: 60px;
+      border-radius: 100px;
+      background: linear-gradient(180deg, rgba(11,157,187,1) 0%, rgba(0,64,112,1) 100%);
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      color: #fff;
+    }
+    .div-panel-three {
+      display: flex;
+      width: 70%;
+      margin-left: 15px;
+      font-size: 25px;
+      background: -webkit-linear-gradient(#0b9dbb, #004070);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+      text-align: left;
+    }
+    .div-panel-t {
+      background: linear-gradient(180deg, rgba(11,157,187,1) 0%, rgba(0,64,112,1) 100%);
+      display: flex; 
+      padding: 10px;
+      justify-content: center;
+      align-items: center;
+    }
+    .panel-body {
+      background: linear-gradient(180deg, rgba(11,157,187,1) 0%, rgba(0,64,112,1) 100%);
+      color: #fff;
+      padding-top: 5px;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-bottom: 5px;
+      border: 1px solid #fff;
+      border-radius: 6px;
+      font-size: 18px;
+      text-align: center;
+    }
+    .panel-footer {
+      background-color: white !important;
+    }
+    .panel-footer h3 {
+      font-size: 32px;
+    }
+    .panel-footer h4 {
+      color: red;
+      font-size: 14px;
+    }
+    .panel-footer .btn {
+      margin: 15px 0;
+      background-color: #004170;
+      color: #fff;
+    }
+   .jumbotron { 
+      background-color: transparent;  /* background-image: url("capa2.jpeg") */
+      color: #fff;
+      padding: 100px 25px;
+      padding-bottom: 25px;
+      font-family: Montserrat, sans-serif;
+    }
+    .navbar li a, .navbar .navbar-brand {
+      color: #fff !important;
+    }
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+      color: #004170 !important;
+      background-color: rgba(255,255,255, 0.9) !important;
+    }
+    .navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+    }
+    footer .glyphicon {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .slideanim {visibility:hidden;}
+    .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+    }
+    .divfooter {
+      width: 100%;
+      margin-top: 30px;
+      padding-bottom: 50px;
+      text-align: center;
+      letter-spacing: 30px;
+      background-color: transparent;
+    }
+    .divfooter1 {
+      width: 100%;
+      text-align: center;
+      background-color: transparent;
+    }
+   .container-contact {
+      padding: 50px 40px;
+    }
+   .circle-image {
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 400px;
+      height: 400px;
+      max-width: 100%;
+      border: 4px solid #fff;
+      background-color: white;
+   }
+   .circle-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+   }
+   .div-image {
+      background-color: transparent;
+   }
+   .s-border{
+      width: 100%;
+      border-bottom: 1px solid #fff;
+   }
+   .container-copy {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .btn-port:hover{
+      border: 1px solid white;
+      border-radius: 6px;
+   }
+   .btn-port {
+      transition: all .5s;
+      width: 80%;
+      background: linear-gradient(180deg, rgba(0,212,255,1) 5%, rgba(0,64,112,1) 100%);
+      color: "#fff";
+      padding: 5px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: none;
+      font-size: 18px;
+   }
+   .container-skills-a{
+      display: flex;
+      flex-direction: column;
+   }
+   .container-skills{
+      display: flex;
+      padding-left: 30px;
+      padding-right: 30px;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      max-width: 100%;
+    }
+    .div-skills-a{
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .div-skills-b{
+      display: flex;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      background: linear-gradient(180deg, rgba(11,157,187,1) 0%, rgba(0,64,112,1) 100%);
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+   @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
+    @-webkit-keyframes slide {
+      0% {
+        opacity: 0;
+        -webkit-transform: translateY(70%);
+      } 
+      100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .col-sm-4 {
+        text-align: center;
+        margin: 25px 0;
+      }
+
+    }
+    @media screen and (max-width: 480px) {
+      .logo {
+        font-size: 150px;
+      }
+    }
+    /* #### Mobile Phones Portrait #### */
+    @media screen and (min-device-width: 480px) and (orientation: portrait){
+      .circle-image {
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      max-width: 100%;
+      border: 4px solid #fff;
+      background-color: white;
+      }
+    }
+
+    /* #### Mobile Phones Landscape #### */
+    @media screen and (max-device-width: 640px) and (orientation: landscape){
+      /* some CSS here */
+    }
+
+    /* #### Mobile Phones Portrait or Landscape #### */
+    @media screen and (max-device-width: 640px){
+      /* some CSS here */
+    }
+    /* #### iPhone 4+ Portrait or Landscape #### */
+    @media screen and (min-device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+     .circle-image {
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      max-width: 100%;
+      border: 4px solid #fff;
+      background-color: white;
+      }
+    }
+
+    /* #### iPhone 5 Portrait or Landscape #### */
+    @media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2){
+      /* some CSS here */
+    }
+    /* #### Tablets Portrait or Landscape #### */
+    @media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+      .circle-image {
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      max-width: 100%;
+      border: 4px solid #fff;
+      background-color: white;
+      }
+    }
+    /* #### iPhone 6 and 6 plus Portrait or Landscape #### */
+    @media (min-device-height: 667px) and (min-device-width: 375px) and (-webkit-min-device-pixel-ratio: 3){
+     .circle-image {
+      display: inline-block;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 300px;
+      height: 300px;
+      max-width: 100%;
+      border: 4px solid #fff;
+      background-color: white;
+      }
+    }
+
+    /* #### Desktops #### */
+    @media screen and (min-width: 1024px){
+        .circle-image {
+        display: inline-block;
+        border-radius: 50%;
+        overflow: hidden;
+        width: 500px;
+        height: 500px;
+        max-width: 100%;
+        border: 4px solid #fff;
+        background-color: white;
+      }
+    }
+ </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                     
+      </button>
+      <a class="navbar-brand" href="#myPage">{ MoisésGomes }</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">SOBRE</a></li>
+        <li><a href="#services">SERVIÇOS</a></li>
+        <li><a href="#pricing">SKILLS</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <li><a href="#contact">CONTANTO</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="jumbotron text-center">
+    <div class="div-image">
+      <span class="circle-image">
+        <img src="images1.jpeg"/>
+      </span>
+    </div>
+  <h2>OLÁ, EU SOU O MOISÉS GOMES!</h2>  
+  <p>Full-Stack Developer</p> 
+</div>
+<!--Container (About Section)-->
+<div id="about" class="container-fluid">
+  <div class="row">
+    <div style="text-align: left; padding-left: 15px; padding-right: 15px;">
+      <h2>Sobre mim</h2>
+      <div class="s-border"></div>
+      <br>
+      <h4>Desenvolvedor de software atuando no desenvolvimento em aplicações Web, Mobile(Android/iOS) e Cloud. Utilizo tecnologias sempre atualizadas e de alta performance, buscando a ferramenta apropriada de acordo com a necessidade do projeto. Com ênfase nos princípios de SOLID, código limpo e padrões de projetos para construir sistemas de qualidade, com fácil manutenção e usabilidade, simplificando a criação de testes automatizados e novas funcionalidades. Sempre procurando aperfeiçoar-se para simplificar o processo de desenvolvimento de software.</h4> 
+    </div>
+  </div>
+</div>
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>SERVIÇOS</h2>
+  <div class="s-border"></div>
+  </br>
+  <h4>See some of my services I offer_</h4>
+  </br>
+   <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel">
+        <div class="panel-heading">
+          <div class="div-panel-one">
+            <div class="div-panel-two-a">
+             <div class="div-panel-two">
+             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="#fff" fill="currentColor" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+             </div>
+            </div> 
+           <div class="div-panel-three">
+             <span>Front-End Developer</span>
+           </div>
+          </div>
+        </div>
+        <div class="div-panel-t">
+          <div class="panel-body">
+            <article>Construção de interfaces web dinâmicas e eficiêntes, utilizando as principais tecnologias como: React, Next, Vue, Angular.. Com foco em boas práticas UI/UX design, interface/interação com layouts modernos e responsivos, fazendo com que o site fique visualmente agradável, funcionando bem em diversos tipos de tela e dispositivos. Sempre captando feedbacks a fim de projetar uma melhor experiência ao usuário.</article>
+          </div>
+        </div>
+      </div>      
+    </div> 
+    <div class="col-sm-4 col-xs-12">
+        <div class="panel">
+        <div class="panel-heading">
+          <div class="div-panel-one">
+            <div class="div-panel-two-a">
+             <div class="div-panel-two">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="#fff" fill="currentColor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M64 32C28.7 32 0 60.7 0 96v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zM344 152c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24zm96-24c0 13.3-10.7 24-24 24s-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24zM64 288c-35.3 0-64 28.7-64 64v64c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V352c0-35.3-28.7-64-64-64H64zM344 408c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24zm104-24c0 13.3-10.7 24-24 24s-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24z"/></svg>
+             </div>
+            </div> 
+           <div class="div-panel-three">
+             <span>Back-End Developer</span>
+           </div>
+          </div>
+        </div>
+        <div class="div-panel-t">
+          <div class="panel-body">
+            <article>No Server-side lado do servidor, atualmente utilizo tecnologias essenciais como: NodeJS, NestJS ou express para desenvolvimento de APIs e aplicações eficiêntes, escaláveis e confiáveis. Fazendo testes unitários/integração utilizando JEST, e JWT para autenticação. Criação e manutenção de banco de dados PostgreSQL, MongoDB ou MySQL. Com Git, Github ou GitLab para versionamento e controle de histórico.</article>
+          </div>
+        </div>
+      </div>      
+    </div> 
+    <div class="col-sm-4 col-xs-12">
+       <div class="panel">
+        <div class="panel-heading">
+          <div class="div-panel-one">
+            <div class="div-panel-two-a">
+             <div class="div-panel-two">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="#fff" fill="currentColor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M495.9 166.6c3.2 8.7 .5 18.4-6.4 24.6l-43.3 39.4c1.1 8.3 1.7 16.8 1.7 25.4s-.6 17.1-1.7 25.4l43.3 39.4c6.9 6.2 9.6 15.9 6.4 24.6c-4.4 11.9-9.7 23.3-15.8 34.3l-4.7 8.1c-6.6 11-14 21.4-22.1 31.2c-5.9 7.2-15.7 9.6-24.5 6.8l-55.7-17.7c-13.4 10.3-28.2 18.9-44 25.4l-12.5 57.1c-2 9.1-9 16.3-18.2 17.8c-13.8 2.3-28 3.5-42.5 3.5s-28.7-1.2-42.5-3.5c-9.2-1.5-16.2-8.7-18.2-17.8l-12.5-57.1c-15.8-6.5-30.6-15.1-44-25.4L83.1 425.9c-8.8 2.8-18.6 .3-24.5-6.8c-8.1-9.8-15.5-20.2-22.1-31.2l-4.7-8.1c-6.1-11-11.4-22.4-15.8-34.3c-3.2-8.7-.5-18.4 6.4-24.6l43.3-39.4C64.6 273.1 64 264.6 64 256s.6-17.1 1.7-25.4L22.4 191.2c-6.9-6.2-9.6-15.9-6.4-24.6c4.4-11.9 9.7-23.3 15.8-34.3l4.7-8.1c6.6-11 14-21.4 22.1-31.2c5.9-7.2 15.7-9.6 24.5-6.8l55.7 17.7c13.4-10.3 28.2-18.9 44-25.4l12.5-57.1c2-9.1 9-16.3 18.2-17.8C227.3 1.2 241.5 0 256 0s28.7 1.2 42.5 3.5c9.2 1.5 16.2 8.7 18.2 17.8l12.5 57.1c15.8 6.5 30.6 15.1 44 25.4l55.7-17.7c8.8-2.8 18.6-.3 24.5 6.8c8.1 9.8 15.5 20.2 22.1 31.2l4.7 8.1c6.1 11 11.4 22.4 15.8 34.3zM256 336c44.2 0 80-35.8 80-80s-35.8-80-80-80s-80 35.8-80 80s35.8 80 80 80z"/></svg>
+             </div>
+            </div> 
+           <div class="div-panel-three">
+             <span>DevOps</span>
+           </div>
+          </div>
+        </div>
+        <div class="div-panel-t">
+          <div class="panel-body">
+            <article>Desenvolvimento e implementação aplicando os conceitos e recursos de DevOps, incluindo os principais softwares e sistemas envolvidos no processo de automação e produção, entre eles; Linux, Git, Github, Ansible, Docker, Kubernetes, Jenkins, Zabbix..  Contribuindo para uma busca contínua por melhorias e otimização, agilizando o processo de desenvolvimento, facilitando sempre o trabalho de entrega.</article>
+          </div>
+        </div>
+      </div>      
+    </div> 
+  </div>   
+</div>
+
+<!-- Container (Skills Section) -->
+<div id="pricing" class="container-fluid text-center">
+  <div class="text-center">
+    <h2>SKILLS</h2>
+    <div class="s-border"></div>
+    </br>
+    <h4>Check out some of my skills here_</h4>
+    </br>
+  </div>
+  <div class="row slideanim">
+  <div class="container-skills-a">
+    <div class="container-skills">
+        <div class="div-skills-a">
+           <div class="div-skills-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M418.2 177.2c-5.4-1.8-10.8-3.5-16.2-5.1.9-3.7 1.7-7.4 2.5-11.1 12.3-59.6 4.2-107.5-23.1-123.3-26.3-15.1-69.2.6-112.6 38.4-4.3 3.7-8.5 7.6-12.5 11.5-2.7-2.6-5.5-5.2-8.3-7.7-45.5-40.4-91.1-57.4-118.4-41.5-26.2 15.2-34 60.3-23 116.7 1.1 5.6 2.3 11.1 3.7 16.7-6.4 1.8-12.7 3.8-18.6 5.9C38.3 196.2 0 225.4 0 255.6c0 31.2 40.8 62.5 96.3 81.5 4.5 1.5 9 3 13.6 4.3-1.5 6-2.8 11.9-4 18-10.5 55.5-2.3 99.5 23.9 114.6 27 15.6 72.4-.4 116.6-39.1 3.5-3.1 7-6.3 10.5-9.7 4.4 4.3 9 8.4 13.6 12.4 42.8 36.8 85.1 51.7 111.2 36.6 27-15.6 35.8-62.9 24.4-120.5-.9-4.4-1.9-8.9-3-13.5 3.2-.9 6.3-1.9 9.4-2.9 57.7-19.1 99.5-50 99.5-81.7 0-30.3-39.4-59.7-93.8-78.4zM282.9 92.3c37.2-32.4 71.9-45.1 87.7-36 16.9 9.7 23.4 48.9 12.8 100.4-.7 3.4-1.4 6.7-2.3 10-22.2-5-44.7-8.6-67.3-10.6-13-18.6-27.2-36.4-42.6-53.1 3.9-3.7 7.7-7.2 11.7-10.7zM167.2 307.5c5.1 8.7 10.3 17.4 15.8 25.9-15.6-1.7-31.1-4.2-46.4-7.5 4.4-14.4 9.9-29.3 16.3-44.5 4.6 8.8 9.3 17.5 14.3 26.1zm-30.3-120.3c14.4-3.2 29.7-5.8 45.6-7.8-5.3 8.3-10.5 16.8-15.4 25.4-4.9 8.5-9.7 17.2-14.2 26-6.3-14.9-11.6-29.5-16-43.6zm27.4 68.9c6.6-13.8 13.8-27.3 21.4-40.6s15.8-26.2 24.4-38.9c15-1.1 30.3-1.7 45.9-1.7s31 .6 45.9 1.7c8.5 12.6 16.6 25.5 24.3 38.7s14.9 26.7 21.7 40.4c-6.7 13.8-13.9 27.4-21.6 40.8-7.6 13.3-15.7 26.2-24.2 39-14.9 1.1-30.4 1.6-46.1 1.6s-30.9-.5-45.6-1.4c-8.7-12.7-16.9-25.7-24.6-39s-14.8-26.8-21.5-40.6zm180.6 51.2c5.1-8.8 9.9-17.7 14.6-26.7 6.4 14.5 12 29.2 16.9 44.3-15.5 3.5-31.2 6.2-47 8 5.4-8.4 10.5-17 15.5-25.6zm14.4-76.5c-4.7-8.8-9.5-17.6-14.5-26.2-4.9-8.5-10-16.9-15.3-25.2 16.1 2 31.5 4.7 45.9 8-4.6 14.8-10 29.2-16.1 43.4zM256.2 118.3c10.5 11.4 20.4 23.4 29.6 35.8-19.8-.9-39.7-.9-59.5 0 9.8-12.9 19.9-24.9 29.9-35.8zM140.2 57c16.8-9.8 54.1 4.2 93.4 39 2.5 2.2 5 4.6 7.6 7-15.5 16.7-29.8 34.5-42.9 53.1-22.6 2-45 5.5-67.2 10.4-1.3-5.1-2.4-10.3-3.5-15.5-9.4-48.4-3.2-84.9 12.6-94zm-24.5 263.6c-4.2-1.2-8.3-2.5-12.4-3.9-21.3-6.7-45.5-17.3-63-31.2-10.1-7-16.9-17.8-18.8-29.9 0-18.3 31.6-41.7 77.2-57.6 5.7-2 11.5-3.8 17.3-5.5 6.8 21.7 15 43 24.5 63.6-9.6 20.9-17.9 42.5-24.8 64.5zm116.6 98c-16.5 15.1-35.6 27.1-56.4 35.3-11.1 5.3-23.9 5.8-35.3 1.3-15.9-9.2-22.5-44.5-13.5-92 1.1-5.6 2.3-11.2 3.7-16.7 22.4 4.8 45 8.1 67.9 9.8 13.2 18.7 27.7 36.6 43.2 53.4-3.2 3.1-6.4 6.1-9.6 8.9zm24.5-24.3c-10.2-11-20.4-23.2-30.3-36.3 9.6.4 19.5.6 29.5.6 10.3 0 20.4-.2 30.4-.7-9.2 12.7-19.1 24.8-29.6 36.4zm130.7 30c-.9 12.2-6.9 23.6-16.5 31.3-15.9 9.2-49.8-2.8-86.4-34.2-4.2-3.6-8.4-7.5-12.7-11.5 15.3-16.9 29.4-34.8 42.2-53.6 22.9-1.9 45.7-5.4 68.2-10.5 1 4.1 1.9 8.2 2.7 12.2 4.9 21.6 5.7 44.1 2.5 66.3zm18.2-107.5c-2.8.9-5.6 1.8-8.5 2.6-7-21.8-15.6-43.1-25.5-63.8 9.6-20.4 17.7-41.4 24.5-62.9 5.2 1.5 10.2 3.1 15 4.7 46.6 16 79.3 39.8 79.3 58 0 19.6-34.9 44.9-84.8 61.4zm-149.7-15c25.3 0 45.8-20.5 45.8-45.8s-20.5-45.8-45.8-45.8c-25.3 0-45.8 20.5-45.8 45.8s20.5 45.8 45.8 45.8z"/></svg>
+           </div>
+           <h4>React</h4>
+        </div> 
+         <div class="div-skills-a">
+           <div class="div-skills-b">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M356.9 64.3H280l-56 88.6-48-88.6H0L224 448 448 64.3h-91.1zm-301.2 32h53.8L224 294.5 338.4 96.3h53.8L224 384.5 55.7 96.3z"/></svg>
+             </div>
+             <h4>Vue</h4>
+           </div> 
+         <div class="div-skills-a">
+           <div class="div-skills-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M316.3 452c-2.1 0-4.2-.6-6.1-1.6L291 439c-2.9-1.6-1.5-2.2-.5-2.5 3.8-1.3 4.6-1.6 8.7-4 .4-.2 1-.1 1.4.1l14.8 8.8c.5.3 1.3.3 1.8 0L375 408c.5-.3.9-.9.9-1.6v-66.7c0-.7-.3-1.3-.9-1.6l-57.8-33.3c-.5-.3-1.2-.3-1.8 0l-57.8 33.3c-.6.3-.9 1-.9 1.6v66.7c0 .6.4 1.2.9 1.5l15.8 9.1c8.6 4.3 13.9-.8 13.9-5.8v-65.9c0-.9.7-1.7 1.7-1.7h7.3c.9 0 1.7.7 1.7 1.7v65.9c0 11.5-6.2 18-17.1 18-3.3 0-6 0-13.3-3.6l-15.2-8.7c-3.7-2.2-6.1-6.2-6.1-10.5v-66.7c0-4.3 2.3-8.4 6.1-10.5l57.8-33.4c3.7-2.1 8.5-2.1 12.1 0l57.8 33.4c3.7 2.2 6.1 6.2 6.1 10.5v66.7c0 4.3-2.3 8.4-6.1 10.5l-57.8 33.4c-1.7 1.1-3.8 1.7-6 1.7zm46.7-65.8c0-12.5-8.4-15.8-26.2-18.2-18-2.4-19.8-3.6-19.8-7.8 0-3.5 1.5-8.1 14.8-8.1 11.9 0 16.3 2.6 18.1 10.6.2.8.8 1.3 1.6 1.3h7.5c.5 0 .9-.2 1.2-.5.3-.4.5-.8.4-1.3-1.2-13.8-10.3-20.2-28.8-20.2-16.5 0-26.3 7-26.3 18.6 0 12.7 9.8 16.1 25.6 17.7 18.9 1.9 20.4 4.6 20.4 8.3 0 6.5-5.2 9.2-17.4 9.2-15.3 0-18.7-3.8-19.8-11.4-.1-.8-.8-1.4-1.7-1.4h-7.5c-.9 0-1.7.7-1.7 1.7 0 9.7 5.3 21.3 30.6 21.3 18.5 0 29-7.2 29-19.8zm54.5-50.1c0 6.1-5 11.1-11.1 11.1s-11.1-5-11.1-11.1c0-6.3 5.2-11.1 11.1-11.1 6-.1 11.1 4.8 11.1 11.1zm-1.8 0c0-5.2-4.2-9.3-9.4-9.3-5.1 0-9.3 4.1-9.3 9.3 0 5.2 4.2 9.4 9.3 9.4 5.2-.1 9.4-4.3 9.4-9.4zm-4.5 6.2h-2.6c-.1-.6-.5-3.8-.5-3.9-.2-.7-.4-1.1-1.3-1.1h-2.2v5h-2.4v-12.5h4.3c1.5 0 4.4 0 4.4 3.3 0 2.3-1.5 2.8-2.4 3.1 1.7.1 1.8 1.2 2.1 2.8.1 1 .3 2.7.6 3.3zm-2.8-8.8c0-1.7-1.2-1.7-1.8-1.7h-2v3.5h1.9c1.6 0 1.9-1.1 1.9-1.8zM137.3 191c0-2.7-1.4-5.1-3.7-6.4l-61.3-35.3c-1-.6-2.2-.9-3.4-1h-.6c-1.2 0-2.3.4-3.4 1L3.7 184.6C1.4 185.9 0 188.4 0 191l.1 95c0 1.3.7 2.5 1.8 3.2 1.1.7 2.5.7 3.7 0L42 268.3c2.3-1.4 3.7-3.8 3.7-6.4v-44.4c0-2.6 1.4-5.1 3.7-6.4l15.5-8.9c1.2-.7 2.4-1 3.7-1 1.3 0 2.6.3 3.7 1l15.5 8.9c2.3 1.3 3.7 3.8 3.7 6.4v44.4c0 2.6 1.4 5.1 3.7 6.4l36.4 20.9c1.1.7 2.6.7 3.7 0 1.1-.6 1.8-1.9 1.8-3.2l.2-95zM472.5 87.3v176.4c0 2.6-1.4 5.1-3.7 6.4l-61.3 35.4c-2.3 1.3-5.1 1.3-7.4 0l-61.3-35.4c-2.3-1.3-3.7-3.8-3.7-6.4v-70.8c0-2.6 1.4-5.1 3.7-6.4l61.3-35.4c2.3-1.3 5.1-1.3 7.4 0l15.3 8.8c1.7 1 3.9-.3 3.9-2.2v-94c0-2.8 3-4.6 5.5-3.2l36.5 20.4c2.3 1.2 3.8 3.7 3.8 6.4zm-46 128.9c0-.7-.4-1.3-.9-1.6l-21-12.2c-.6-.3-1.3-.3-1.9 0l-21 12.2c-.6.3-.9.9-.9 1.6v24.3c0 .7.4 1.3.9 1.6l21 12.1c.6.3 1.3.3 1.8 0l21-12.1c.6-.3.9-.9.9-1.6v-24.3zm209.8-.7c2.3-1.3 3.7-3.8 3.7-6.4V192c0-2.6-1.4-5.1-3.7-6.4l-60.9-35.4c-2.3-1.3-5.1-1.3-7.4 0l-61.3 35.4c-2.3 1.3-3.7 3.8-3.7 6.4v70.8c0 2.7 1.4 5.1 3.7 6.4l60.9 34.7c2.2 1.3 5 1.3 7.3 0l36.8-20.5c2.5-1.4 2.5-5 0-6.4L550 241.6c-1.2-.7-1.9-1.9-1.9-3.2v-22.2c0-1.3.7-2.5 1.9-3.2l19.2-11.1c1.1-.7 2.6-.7 3.7 0l19.2 11.1c1.1.7 1.9 1.9 1.9 3.2v17.4c0 2.8 3.1 4.6 5.6 3.2l36.7-21.3zM559 219c-.4.3-.7.7-.7 1.2v13.6c0 .5.3 1 .7 1.2l11.8 6.8c.4.3 1 .3 1.4 0L584 235c.4-.3.7-.7.7-1.2v-13.6c0-.5-.3-1-.7-1.2l-11.8-6.8c-.4-.3-1-.3-1.4 0L559 219zm-254.2 43.5v-70.4c0-2.6-1.6-5.1-3.9-6.4l-61.1-35.2c-2.1-1.2-5-1.4-7.4 0l-61.1 35.2c-2.3 1.3-3.9 3.7-3.9 6.4v70.4c0 2.8 1.9 5.2 4 6.4l61.2 35.2c2.4 1.4 5.2 1.3 7.4 0l61-35.2c1.8-1 3.1-2.7 3.6-4.7.1-.5.2-1.1.2-1.7zm-74.3-124.9l-.8.5h1.1l-.3-.5zm76.2 130.2l-.4-.7v.9l.4-.2z"/></svg>
+           </div>
+            <h4>Node</h4>
+        </div> 
+        <div class="div-skills-a">
+           <div class="div-skills-b">
+             <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 32v448h448V32H0zm243.8 349.4c0 43.6-25.6 63.5-62.9 63.5-33.7 0-53.2-17.4-63.2-38.5l34.3-20.7c6.6 11.7 12.6 21.6 27.1 21.6 13.8 0 22.6-5.4 22.6-26.5V237.7h42.1v143.7zm99.6 63.5c-39.1 0-64.4-18.6-76.7-43l34.3-19.8c9 14.7 20.8 25.6 41.5 25.6 17.4 0 28.6-8.7 28.6-20.8 0-14.4-11.4-19.5-30.7-28l-10.5-4.5c-30.4-12.9-50.5-29.2-50.5-63.5 0-31.6 24.1-55.6 61.6-55.6 26.8 0 46 9.3 59.8 33.7L368 290c-7.2-12.9-15-18-27.1-18-12.3 0-20.1 7.8-20.1 18 0 12.6 7.8 17.7 25.9 25.6l10.5 4.5c35.8 15.3 55.9 31 55.9 66.2 0 37.8-29.8 58.6-69.7 58.6z"/></svg>
+             </div>
+             <h4>JS</h4>
+          </div> 
+    </div>
+<!-- skills container 2 -->
+    <div class="container-skills">
+        <div class="div-skills-a">
+           <div class="div-skills-b">
+           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M333.5,201.4c0-22.1-15.6-34.3-43-34.3h-50.4v71.2h42.5C315.4,238.2,333.5,225,333.5,201.4z M517,188.6 c-9.5-30.9-10.9-68.8-9.8-98.1c1.1-30.5-22.7-58.5-54.7-58.5H123.7c-32.1,0-55.8,28.1-54.7,58.5c1,29.3-0.3,67.2-9.8,98.1 c-9.6,31-25.7,50.6-52.2,53.1v28.5c26.4,2.5,42.6,22.1,52.2,53.1c9.5,30.9,10.9,68.8,9.8,98.1c-1.1,30.5,22.7,58.5,54.7,58.5h328.7 c32.1,0,55.8-28.1,54.7-58.5c-1-29.3,0.3-67.2,9.8-98.1c9.6-31,25.7-50.6,52.1-53.1v-28.5C542.7,239.2,526.5,219.6,517,188.6z M300.2,375.1h-97.9V136.8h97.4c43.3,0,71.7,23.4,71.7,59.4c0,25.3-19.1,47.9-43.5,51.8v1.3c33.2,3.6,55.5,26.6,55.5,58.3 C383.4,349.7,352.1,375.1,300.2,375.1z M290.2,266.4h-50.1v78.4h52.3c34.2,0,52.3-13.7,52.3-39.5 C344.7,279.6,326.1,266.4,290.2,266.4z"/></svg>
+           </div>
+           <h4>Bootstrap</h4>
+        </div> 
+        <div class="div-skills-a">
+           <div class="div-skills-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M0 32l34.9 395.8L191.5 480l157.6-52.2L384 32H0zm308.2 127.9H124.4l4.1 49.4h175.6l-13.6 148.4-97.9 27v.3h-1.1l-98.7-27.3-6-75.8h47.7L138 320l53.5 14.5 53.7-14.5 6-62.2H84.3L71.5 112.2h241.1l-4.4 47.7z"/></svg>
+           </div>
+           <h4>Html</h4>
+        </div> 
+         <div class="div-skills-a">
+           <div class="div-skills-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M480 32l-64 368-223.3 80L0 400l19.6-94.8h82l-8 40.6L210 390.2l134.1-44.4 18.8-97.1H29.5l16-82h333.7l10.5-52.7H56.3l16.3-82H480z"/></svg>
+           </div>
+           <h4>Css</h4>
+         </div> 
+         <div class="div-skills-a">
+           <div class="div-skills-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor"  viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z"/></svg>
+           </div>
+           <h4>Data-Base</h4>
+        </div> 
+    </div>
+    <!-- skills container 3 -->
+    <div class="container-skills">
+        <div class="div-skills-a">
+         <div class="div-skills-b">
+           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor"  viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/></svg>
+         </div>
+         <h4>Python</h4>
+        </div> 
+       <div class="div-skills-a">
+           <div class="div-skills-b">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor"  viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M180.41 203.01c-.72 22.65 10.6 32.68 10.88 39.05a8.164 8.164 0 0 1-4.1 6.27l-12.8 8.96a10.66 10.66 0 0 1-5.63 1.92c-.43-.02-8.19 1.83-20.48-25.61a78.608 78.608 0 0 1-62.61 29.45c-16.28.89-60.4-9.24-58.13-56.21-1.59-38.28 34.06-62.06 70.93-60.05 7.1.02 21.6.37 46.99 6.27v-15.62c2.69-26.46-14.7-46.99-44.81-43.91-2.4.01-19.4-.5-45.84 10.11-7.36 3.38-8.3 2.82-10.75 2.82-7.41 0-4.36-21.48-2.94-24.2 5.21-6.4 35.86-18.35 65.94-18.18a76.857 76.857 0 0 1 55.69 17.28 70.285 70.285 0 0 1 17.67 52.36l-.01 69.29zM93.99 235.4c32.43-.47 46.16-19.97 49.29-30.47 2.46-10.05 2.05-16.41 2.05-27.4-9.67-2.32-23.59-4.85-39.56-4.87-15.15-1.14-42.82 5.63-41.74 32.26-1.24 16.79 11.12 31.4 29.96 30.48zm170.92 23.05c-7.86.72-11.52-4.86-12.68-10.37l-49.8-164.65c-.97-2.78-1.61-5.65-1.92-8.58a4.61 4.61 0 0 1 3.86-5.25c.24-.04-2.13 0 22.25 0 8.78-.88 11.64 6.03 12.55 10.37l35.72 140.83 33.16-140.83c.53-3.22 2.94-11.07 12.8-10.24h17.16c2.17-.18 11.11-.5 12.68 10.37l33.42 142.63L420.98 80.1c.48-2.18 2.72-11.37 12.68-10.37h19.72c.85-.13 6.15-.81 5.25 8.58-.43 1.85 3.41-10.66-52.75 169.9-1.15 5.51-4.82 11.09-12.68 10.37h-18.69c-10.94 1.15-12.51-9.66-12.68-10.75L328.67 110.7l-32.78 136.99c-.16 1.09-1.73 11.9-12.68 10.75h-18.3zm273.48 5.63c-5.88.01-33.92-.3-57.36-12.29a12.802 12.802 0 0 1-7.81-11.91v-10.75c0-8.45 6.2-6.9 8.83-5.89 10.04 4.06 16.48 7.14 28.81 9.6 36.65 7.53 52.77-2.3 56.72-4.48 13.15-7.81 14.19-25.68 5.25-34.95-10.48-8.79-15.48-9.12-53.13-21-4.64-1.29-43.7-13.61-43.79-52.36-.61-28.24 25.05-56.18 69.52-55.95 12.67-.01 46.43 4.13 55.57 15.62 1.35 2.09 2.02 4.55 1.92 7.04v10.11c0 4.44-1.62 6.66-4.87 6.66-7.71-.86-21.39-11.17-49.16-10.75-6.89-.36-39.89.91-38.41 24.97-.43 18.96 26.61 26.07 29.7 26.89 36.46 10.97 48.65 12.79 63.12 29.58 17.14 22.25 7.9 48.3 4.35 55.44-19.08 37.49-68.42 34.44-69.26 34.42zm40.2 104.86c-70.03 51.72-171.69 79.25-258.49 79.25A469.127 469.127 0 0 1 2.83 327.46c-6.53-5.89-.77-13.96 7.17-9.47a637.37 637.37 0 0 0 316.88 84.12 630.22 630.22 0 0 0 241.59-49.55c11.78-5 21.77 7.8 10.12 16.38zm29.19-33.29c-8.96-11.52-59.28-5.38-81.81-2.69-6.79.77-7.94-5.12-1.79-9.47 40.07-28.17 105.88-20.1 113.44-10.63 7.55 9.47-2.05 75.41-39.56 106.91-5.76 4.87-11.27 2.3-8.71-4.1 8.44-21.25 27.39-68.49 18.43-80.02z"/></svg>
+           </div>
+           <h4>AWS</h4>
+        </div> 
+        <div class="div-skills-a">
+         <div class="div-skills-b">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor"  viewBox="0 0 640 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M349.9 236.3h-66.1v-59.4h66.1v59.4zm0-204.3h-66.1v60.7h66.1V32zm78.2 144.8H362v59.4h66.1v-59.4zm-156.3-72.1h-66.1v60.1h66.1v-60.1zm78.1 0h-66.1v60.1h66.1v-60.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1l-13.3-8.9zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1v-59.4zm-78.1-72.1h-66.1v60.1h66.1v-60.1z"/></svg>
+         </div>
+         <h4>Docker</h4>
+      </div> 
+       <div class="div-skills-a">
+         <div class="div-skills-b">
+          <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" color="#fff" fill="currentColor" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+         </div>
+       <h4>Git</h4>
+      </div> 
+    </div>
+   </div>
+  </div>
+</div>
+<!-- Container (Portfolio Section) -->
+<div id="portfolio" class="container-fluid text-center bg-grey">
+  <h2>PORTFOLIO</h2>
+  <div class="s-border"></div>
+  <br>
+  <h4>Here are some of my projects_</h4>
+  </br>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="imgport1.png">
+        <div class="thumbnail-footer">
+          <p>O Grocery List é um app gratuito multiplataforma para Android/iOS. 
+          Com este app o usuário poderá criar rapidamente e gerenciar suas listas, economizar tempo e organizar melhor às compras.</p>
+          </br>
+          <p><span style="font-weight: bold;">Tecnologias utilizadas:</span> 
+          React Native, Javascript, JSX, Styled-components, Node JS, Redux.js, Typescript, Firebase.</p>
+          <div style="display: flex;align-items: center; justify-content: center;"> 
+             <button class="btn-port" onclick="location.href='https://play.google.com/store/apps/details?id=com.stocklistapp'" type="button">Ver no Google Play</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail-t">
+        <div style="display: flex; justify-content: center; align-items: center;">
+           <h1>Link available soon..</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+     <div class="thumbnail-t">
+        <div style="display: flex; justify-content: center; align-items: center;">
+           <h1>Link available soon..</h1>
+        </div>
+      </div>
+    </div>
+   </div>
+ </div>
+<!-- Container (Contact Section) -->
+<footer style="background: linear-gradient(282deg, rgba(0,212,255,1) 5%, rgba(0,64,112,1) 100%);">
+      <div id="contact" class="container-contact">
+      <h2 class="text-center">CONTATO</h2>
+      <div class="s-border"></div>
+    </br></br>
+      <div class="row">
+          <div class="col-sm-5">
+            <p>Fique à vontade para entrar em contato para dúvidas, sugestões, orçamentos ou suporte.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Rio Grande do Norte, BR</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +55 84 99686-3140</p>
+            <p><span class="glyphicon glyphicon-envelope"></span><a style="color: white;" href="mailto:moisesgomes.dev@gmail.com?Subject=assunto&Body=comentario"> moisesgomes.dev@gmail.com</a></p>
+          </div>
+          <div class="col-sm-7 slideanim">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" onclick="location.href='mailto:moisesgomes.dev@gmail.com?Subject=&Body='" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+       </div>
+    </div>
+    <div class="divfooter1">
+          <a href="#myPage" title="To Top">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+          </a>
+         <div class="divfooter"> 
+          <a href="https://wa.me/5584996863140">
+           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color='#fff' fill="currentColor" class="bi bi-whatsapp"  viewBox="0 0 16 16">
+          <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+          </svg></a>
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color='#fff' fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+        </svg>
+        <a href="https://www.linkedin.com/in/mois%C3%A9s-gomes-442a671a2/">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color='#fff' fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+          <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+        </svg></a>
+       </div>
+     </div>
+     <div class="container-copy">
+      <div style="max-width: 80%; padding-bottom: 15px; font-size: 14px; justify-content: center; text-align: center;">
+         Copyright &copy; Moisés Gomes. All Rights Reserved
+      </div>
+    </div>
+</footer>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+</body>
+</html>
+
+
